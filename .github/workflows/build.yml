@@ -7,7 +7,7 @@ name: "Build"
 
 on:
   push:
-    branches: [ v2.4.x ]
+    branches: [ v2.4.x, main ]
   pull_request:
     branches: [ v2.4.x ]
   schedule:
