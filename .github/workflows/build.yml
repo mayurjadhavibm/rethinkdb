@@ -18,7 +18,7 @@ jobs:
   # Preflight runs every test and assertion that has no dependency on the build
   # directory.
   preflight:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v3
@@ -31,7 +31,7 @@ jobs:
   # Build job runs after the preflight finished successfully. It configures the
   # build system, then builds the DB.
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 35
     #commented to check build run needs: preflight
     steps:
@@ -76,7 +76,7 @@ jobs:
 
   # Execute the test runner for unit tests.
   unit-tests:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 15
     needs: build
     steps:
@@ -104,7 +104,7 @@ jobs:
   # NOTE: integration tests are using the Python driver, hence we have to setup the
   #  driver and checkout the exact same commit hash as we do for other tests.
   integration-tests:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 45
     needs: unit-tests
     steps:
@@ -132,7 +132,7 @@ jobs:
           path: ${{ github.job }}.tar.gz
 
   long-running-tests:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 60
     needs: unit-tests
     steps:
@@ -165,7 +165,7 @@ jobs:
   #  are running one test per language as a sanity check. We should run language groups
   #  when we ensured that drivers are supporting never interpreter versions.
   polyglot-tests-python:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 15
     needs:
       - integration-tests
@@ -193,7 +193,7 @@ jobs:
           path: ${{ github.job }}.tar.gz
 
   polyglot-tests-javascript:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 15
     needs:
       - integration-tests
@@ -234,7 +234,7 @@ jobs:
           path: ${{ github.job }}.tar.gz
 
   polyglot-tests-ruby:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     timeout-minutes: 15
     needs:
       - integration-tests
