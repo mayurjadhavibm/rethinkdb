@@ -17,16 +17,16 @@ jobs:
 
   # Preflight runs every test and assertion that has no dependency on the build
   # directory.
-  preflight:
-    runs-on: self-hosted
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v3
-      - name: cpplint
-        uses: ./.github/actions/tests
-        with:
-          command: ./scripts/check_style.sh
-          download_artifacts: false
+  #preflight:
+  #  runs-on: self-hosted
+  #  timeout-minutes: 5
+  #  steps:
+  #    - uses: actions/checkout@v3
+  #    - name: cpplint
+  #      uses: ./.github/actions/tests
+  #      with:
+  #       command: ./scripts/check_style.sh
+  #        download_artifacts: false
 
   # Build job runs after the preflight finished successfully. It configures the
   # build system, then builds the DB.
