@@ -36,9 +36,9 @@ jobs:
     #commented to check build run needs: preflight
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
-        with:
-          python-version: '2.7'
+      #- uses: actions/setup-python@v3
+      #  with:
+      #    python-version: '2.7'
 
       - name: apt install
         run: |
