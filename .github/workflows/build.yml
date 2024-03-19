@@ -35,7 +35,7 @@ jobs:
     timeout-minutes: 35
     #commented to check build run needs: preflight
     steps:
-      - uses: actions/checkout@v3
+      #- uses: actions/checkout@v3
       #- uses: actions/setup-python@v3
       #  with:
       #    python-version: '2.7'
@@ -80,7 +80,7 @@ jobs:
     timeout-minutes: 15
     needs: build
     steps:
-      - uses: actions/checkout@v3
+      #- uses: actions/checkout@v3
       - name: unit tests
         uses: ./.github/actions/tests
         with:
@@ -108,7 +108,7 @@ jobs:
     timeout-minutes: 45
     needs: unit-tests
     steps:
-      - uses: actions/checkout@v3
+      #- uses: actions/checkout@v3
       - name: integration tests
         uses: ./.github/actions/driver-tests
         with:
@@ -136,7 +136,7 @@ jobs:
     timeout-minutes: 60
     needs: unit-tests
     steps:
-      - uses: actions/checkout@v3
+      #- uses: actions/checkout@v3
       - name: long running tests
         uses: ./.github/actions/driver-tests
         with:
