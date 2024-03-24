@@ -10,7 +10,8 @@ inputs:
     default: "true"
     required: false
 
-# Composite step for using the test runner with multiple parameters.
+# Composite step for using the test runner with multiple parameters. 
+
 runs:
   using: composite
   steps:
